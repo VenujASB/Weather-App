@@ -25,13 +25,13 @@ locationBtn.addEventListener("click", () =>{
 });
 
 function requestApi(city){
-    api = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=752e2b808f5d7523c1c7c07e55536b83`;
+    api = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=a62071e0e20a9a2e65b9b1c8e004cbc9`;
     fetchData();
 }
 
 function onSuccess(position){
     const {latitude, longitude} = position.coords; // getting lat and lon of the user device from coords obj
-    api = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=metric&appid=752e2b808f5d7523c1c7c07e55536b83`;
+    api = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=metric&appid=a62071e0e20a9a2e65b9b1c8e004cbc9`;
     fetchData();
 }
 
@@ -47,7 +47,7 @@ function fetchData(){
     // getting api response and returning it with parsing into js obj and in another 
     // then function calling weatherDetails function with passing api result as an argument
     fetch(api).then(res => res.json()).then(result => weatherDetails(result)).catch(() =>{
-        infoTxt.innerText = "Something went wrong";
+        infoTxt.innerText = "Oops! Something went wrong";
         infoTxt.classList.replace("pending", "error");
     });
 }
